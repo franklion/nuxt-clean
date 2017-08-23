@@ -1,4 +1,6 @@
 const axios = require('axios')
+const config = require('config')
+const backend = config.get('apiBackend')
 
 module.exports = {
   /*
@@ -31,17 +33,12 @@ module.exports = {
     ],
   },
   css: ['~/assets/main.css'],
+  env: backend,
   generate: {
     routes() {
       const root = 'https://jsonplaceholder.typicode.com'
-      let posts = axios.get(`${root}/posts/`)
-                       .then(res => res.data.map(post => `/post/${post.id}`))
-      return posts                 
-
-        // const bilesUrl = 'http://data.taipei/data/youbike'
-        // let bikes = axios.get(bilesUrl)
-        //                  .then(res => res.) 
-
+      return axios.get(`${root}/posts/`)
+        .then(res => res.data.map(post => `/post/${post.id}`))
     },
 
     // routes(callback) {
@@ -80,13 +77,23 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/proxy'
- ],
+  ],
   proxy: [
-    ['/api/data', { target: 'http://data.taipei/', pathRewrite: { '^/api/data': '' } }],
-    ['/api', { target: 'http://www.mocky.io', pathRewrite: { '^/api': '/v2' } }]
+    ['/api/data', {
+      target: 'http://data.taipei/',
+      pathRewrite: {
+        '^/api/data': ''
+      }
+    }],
+    ['/api', {
+      target: 'http://www.mocky.io',
+      pathRewrite: {
+        '^/api': '/v2'
+      }
+    }]
   ],
   axios: {
     credentials: false
   }
-    
+
 }

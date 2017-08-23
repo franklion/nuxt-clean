@@ -14,6 +14,12 @@
     </section>
 
     <section>
+      Configuration
+
+      <ul>
+        <li>Url: {{ url }}</li>
+        <li>Port: {{ port }}</li>
+      </ul>
       <figure class="figure-block">
         <img src="/sign.png" alt="" class="static-image fixed-size-image">
         <figcaption>Static Image</figcaption>
@@ -39,6 +45,12 @@
 export default {
   head: {
     title: 'Action',
+  },
+  data({ env }) {
+    return {
+      url: env.url,
+      port: env.port,
+    }
   },
 }
 </script>
