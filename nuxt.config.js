@@ -1,6 +1,4 @@
 const axios = require('axios')
-const config = require('config')
-const backend = config.get('apiBackend')
 
 module.exports = {
   /*
@@ -33,7 +31,6 @@ module.exports = {
     ],
   },
   css: ['~/assets/main.css'],
-  env: backend,
   generate: {
     routes() {
       const root = 'https://jsonplaceholder.typicode.com'

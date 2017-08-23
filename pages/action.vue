@@ -17,8 +17,7 @@
       Configuration
 
       <ul>
-        <li>Url: {{ url }}</li>
-        <li>Port: {{ port }}</li>
+        <li>Url: {{ msg }}</li>
       </ul>
       <figure class="figure-block">
         <img src="/sign.png" alt="" class="static-image fixed-size-image">
@@ -46,10 +45,9 @@ export default {
   head: {
     title: 'Action',
   },
-  data({ env }) {
+  data() {
     return {
-      url: env.url,
-      port: env.port,
+      msg: process.env.NODE_ENV,
     }
   },
 }
