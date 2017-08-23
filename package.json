@@ -1,0 +1,40 @@
+{
+  "name": "nuxt-clean",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "IPREFER-FRANK\\frank <frank@iprefer.com.tw>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "nuxt": "^1.0.0-rc3"
+  },
+  "devDependencies": {
+    "@nuxtjs/axios": "^3.1.4",
+    "@nuxtjs/proxy": "^1.1.1",
+    "babel-eslint": "^7.2.3",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^3.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^2.1.0",
+    "eslint-plugin-vuefix": "^0.2.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "vue-eslint-parser": "^1.0.0"
+  }
+}

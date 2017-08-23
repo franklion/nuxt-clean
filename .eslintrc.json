@@ -1,0 +1,44 @@
+{
+    "extends": [
+        "airbnb-base"
+    ],
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "plugins": [
+        "html", "vue"
+    ],
+    "settings": {
+        "html/html-extensions": [".html", ".vue"] 
+        // consider .html and .vue files as HTML
+    },
+    "parserOptions": {
+        "parser": "babel-eslint",
+        "ecmaVersion": 8,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": false,
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "rules": {
+        //
+        "comma-dangle": 2,
+        "comma-style": ["error", "last"],
+        "no-extra-semi": 2,
+        "semi-spacing": 2,
+        "semi": ["error", "never"],
+        "indent": 2,
+        "space-before-blocks": 2,
+        "no-unused-vars": 2,
+        "no-console": 0,
+        "no-unexpected-multiline": 2,
+        "no-multi-spaces": 2,
+        "no-extend-native": 0,
+        "import/no-unresolved": 0,
+        "no-undef": 0,
+        "no-mixed-operators": ["error", {"allowSamePrecedence": true}]
+    }
+}
