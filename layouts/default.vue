@@ -18,9 +18,10 @@
       </div>
     </nav>
     <!-- /navigation -->
-
     <!-- displays the page component -->
     <nuxt/>
 
   </div>
 </template>
+
+

@@ -2,10 +2,10 @@ const axios = require('axios')
 
 module.exports = {
   /*
-   ** Headers of the page
+   ** Headers of the page <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
    */
   head: {
-    titleTemplate: '%s | Awesome JS SSR Blog',
+    titleTemplate: 'SPA mode with Nuxt.js',
     meta: [{
         charset: 'utf-8'
       },
@@ -31,12 +31,16 @@ module.exports = {
     ],
   },
   css: ['~/assets/main.css'],
+  env: {
+    mode: 456
+  },
   generate: {
-    routes() {
-      const root = 'https://jsonplaceholder.typicode.com'
-      return axios.get(`${root}/posts/`)
-        .then(res => res.data.map(post => `/post/${post.id}`))
-    },
+    // routes() {
+    //   const root = 'https://jsonplaceholder.typicode.com'
+    //   return axios.get(`${root}/posts/`)
+    //     .then(res => res.data.map(post => `/post/${post.id}`))
+    // },
+    interval: 2
 
     // routes(callback) {
     //   const posts = require('./posts.json')
@@ -77,7 +81,7 @@ module.exports = {
   ],
   proxy: [
     ['/api/data', {
-      target: 'http://data.taipei/',
+      target: 'http://data.taipei',
       pathRewrite: {
         '^/api/data': ''
       }
@@ -87,7 +91,13 @@ module.exports = {
       pathRewrite: {
         '^/api': '/v2'
       }
-    }]
+    }],
+    // ['/api/v1/rest/datastore', {
+    //   target: 'http://data.ntpc.gov.tw',
+    //   pathRewrite: {
+    //     '^/api/v1/rest/datastore': '/api/v1/rest/datastore'
+    //   }
+    // }]
   ],
   axios: {
     credentials: false

@@ -27,7 +27,7 @@
         </thead>
 
         <tbody class="bike-tbody" v-cloak>
-          <tr v-for="(bike,index) in bikes" :key="index">
+          <tr v-for="(bike,index) in bikes" :key="index" v-if="bike.sna">
             <td>{{ bike.sno }}</td>
             <td>{{ bike.sarea }}</td>
             <td>{{ bike.sna }}</td>
@@ -60,10 +60,9 @@ export default {
   //   }
   // },
   asyncData({ app }) {
-    return app.axios.$get('/data/youbike')
-      .then(response =>
-        ({ bikes: response.retVal }),
-      )
+    const apiUrl = process.env.NODE_ENV === 'production' ? 'http://data.taipei/youbike' : '/data/youbike'
+    return app.axios.$get(apiUrl)
+      .then(response => ({ bikes: response.retVal }))
   },
 }
 </script>

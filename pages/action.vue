@@ -14,11 +14,6 @@
     </section>
 
     <section>
-      Configuration
-
-      <ul>
-        <li>Url: {{ msg }}</li>
-      </ul>
       <figure class="figure-block">
         <img src="/sign.png" alt="" class="static-image fixed-size-image">
         <figcaption>Static Image</figcaption>
@@ -33,7 +28,11 @@
         <img src="~assets/icon-purple-like.png" alt="" class="static-image">
         <figcaption>Assets Image(base-64 data URL)</figcaption>
       </figure>
-
+      <div>
+        <p>{{person.index}}</p>
+        <p>{{person.guid}}</p>
+        <p>{{person.isActive}}</p>
+      </div>
     </section>
 
   </div>
@@ -46,11 +45,15 @@ export default {
     title: 'Action',
   },
   data() {
-    return {
-      msg: process.env.NODE_ENV,
-    }
+    return {}
+  },
+  asyncData({ app }) {
+    return app.axios.$get('http://beta.json-generator.com/api/json/get/V13mFUPQX')
+      .then(response => ({ person: response }))
   },
 }
+// development
+// production {{index()}}
 </script>
 
 <style>
