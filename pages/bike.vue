@@ -60,8 +60,8 @@ export default {
   //   }
   // },
   asyncData({ app }) {
-    const apiUrl = process.env.NODE_ENV === 'production' ? 'http://data.taipei/youbike' : '/data/youbike'
-    return app.axios.$get(apiUrl)
+    // const apiUrl = process.env.NODE_ENV === 'production' ? 'http://data.taipei/youbike' : '/data/youbike'
+    return app.axios.$get('/data/youbike')
       .then(response => ({ bikes: response.retVal }))
   },
 }
